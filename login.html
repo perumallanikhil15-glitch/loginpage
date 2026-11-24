@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: lightblue;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 90%;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Login Page</h2>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="msg"></p>
+    </div>
+
+    <script>
+        localStorage.setItem("email", "user@gmail.com");
+        localStorage.setItem("password", "12345");
+
+        function login() {
+            let e = document.getElementById("email").value;
+            let p = document.getElementById("password").value;
+
+            let se = localStorage.getItem("email");
+            let sp = localStorage.getItem("password");
+
+            let m = document.getElementById("msg");
+
+            if (e === se && p === sp) {
+                m.innerHTML = "Login Successful";
+                m.style.color = "green";
+            }
+            else {
+                m.innerHTML = "Invalid email or password";
+                m.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
